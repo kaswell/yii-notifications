@@ -1,0 +1,35 @@
+{
+  "name": "kaswell/yii-notifications",
+  "description": "Notifications module for Yii2",
+  "type": "yii2-extension",
+  "keywords": [
+    "yii2",
+    "notifications",
+    "module"
+  ],
+  "authors": [
+    {
+      "name": "Alexandr Kasatkin",
+      "email": "a.kasatkin@nonium.by",
+      "homepage": "https://nonium.by",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "yiisoft/yii2": "~2.0.13"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Kaswell\\Notifications\\": "src\\"
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
+}
