@@ -11,6 +11,15 @@ use kaswell\notification\events\NotificationEvent;
 use yii\base\Component;
 use yii\base\InvalidConfigException;
 
+/**
+ * @property array $channels
+ *
+ * @method bool hasProperty(string $name, bool $checkVars = true, bool $checkBehaviors = true)
+ * @method bool canGetProperty(string $name, bool $checkVars = true, bool $checkBehaviors = true)
+ * @method bool canSetProperty(string $name, bool $checkVars = true, bool $checkBehaviors = true)
+ * @method bool hasMethod(string $name, bool $checkBehaviors = true)
+ * @method array behaviors()
+ */
 class Notifier extends Component
 {
     const EVENT_AFTER_SEND = 'afterSend';
