@@ -27,7 +27,7 @@ trait NotificationTrait
         return $channels;
     }
 
-    public function exportFor($channel): AbstractMessage
+    public function exportFor($channel)
     {
         if (method_exists($this, $method = 'exportFor'.Inflector::id2camel($channel))) {
             return $this->{$method}();
