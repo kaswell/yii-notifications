@@ -10,6 +10,7 @@ use yii\di\Instance;
 
 class MailChannel extends Component implements ChannelInterface
 {
+    /** @var string|\yii\mail\MailerInterface' */
     public $mailer = 'mailer';
 
     public $from;
@@ -23,7 +24,12 @@ class MailChannel extends Component implements ChannelInterface
     public function send(NotifiableInterface $recipient, NotificationInterface $notification)
     {
         $message = $notification->exportFor('mail');
-        return $this->mailer->compose($message->view, $message->viewData)
+
+        $mailer = ($message->view && $message->viewData)
+            ? $this->mailer->compose($message->view, $message->viewData)
+            : $this->mailer->compose()->setHtmlBody($message->view);
+
+        return $mailer
             ->setFrom(isset($message->from) ? $message->from : $this->from)
             ->setTo($recipient->routeNotificationFor('mail'))
             ->setSubject($message->subject)
