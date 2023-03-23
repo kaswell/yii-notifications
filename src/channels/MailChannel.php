@@ -25,11 +25,8 @@ class MailChannel extends Component implements ChannelInterface
     {
         $message = $notification->exportFor('mail');
 
-        $mailer = ($message->view && $message->viewData)
-            ? $this->mailer->compose($message->view, $message->viewData)
-            : $this->mailer->compose()->setHtmlBody($message->view);
-
-        return $mailer
+        return \Yii::$app->mailer->compose()
+            ->setHtmlBody($message->view)
             ->setFrom(isset($message->from) ? $message->from : $this->from)
             ->setTo($recipient->routeNotificationFor('mail'))
             ->setSubject($message->subject)
