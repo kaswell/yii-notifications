@@ -31,11 +31,5 @@ class MailChannel extends Component implements ChannelInterface
             ->setSubject($message->subject)
             ->setHtmlBody($message->view)
             ->send();
-//        return Yii::$app->mailer->compose()
-//            ->setHtmlBody($message->view)
-//            ->setFrom($message->from ?? $this->from)
-//            ->setTo($recipient->routeNotificationFor('mail'))
-//            ->setSubject($message->subject)
-//            ->send();
     }
 }
