@@ -7,10 +7,10 @@ use kaswell\notification\NotifiableInterface;
 use kaswell\notification\NotificationInterface;
 use yii\base\Component;
 use yii\di\Instance;
+use Yii;
 
 class MailChannel extends Component implements ChannelInterface
 {
-    /** @var string|\yii\mail\MailerInterface' */
     public $mailer = 'mailer';
 
     public $from;
@@ -25,7 +25,7 @@ class MailChannel extends Component implements ChannelInterface
     {
         $message = $notification->exportFor('mail');
 
-        return \Yii::$app->mailer->compose()
+        return Yii::$app->mailer->compose()
             ->setHtmlBody($message->view)
             ->setFrom(isset($message->from) ? $message->from : $this->from)
             ->setTo($recipient->routeNotificationFor('mail'))
