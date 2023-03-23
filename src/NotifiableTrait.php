@@ -33,7 +33,7 @@ trait NotifiableTrait
 
     public function viaChannels()
     {
-        return ['database'];
+        return ['database', 'mail'];
     }
 
     /**
